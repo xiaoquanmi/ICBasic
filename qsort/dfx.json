@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "dfx": "0.11.1",
+  "canisters": {
+    "qsort_backend": {
+      "type": "motoko",
+      "main": "src/qsort_backend/main.mo"
+    },
+    "qsort_frontend": {
+      "type": "assets",
+      "source": [
+        "src/qsort_frontend/assets"
+      ],
+      "dependencies": [
+        "qsort_backend"
+      ]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  }
+}
