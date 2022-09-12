@@ -1,6 +1,32 @@
+import Text "mo:base/Text";
+import Nat "mo:base/Nat";
+
 // Create a simple Counter actor.
 actor Counter {
   stable var currentValue : Nat = 0;
+
+  type HttpRequest = {
+    body: Blob;
+    headers: [HeaderField];
+    method: Text;
+    url: Text;
+  };
+
+  type HttpResponse = {
+    body: Blob;
+    headers: [HeaderField];
+    status_code: Nat16;
+  };
+
+  type HeaderField = (Text, Text);
+
+  public query func http_request(request: HttpRequest): async HttpResponse {
+    {
+      body = Text.encodeUtf8(Nat.toText(currentValue));
+      headers = [];
+      status_code = 200;
+    }
+  };
 
   // Increment the counter with the increment function.
   public func increment() : async () {
