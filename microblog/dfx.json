@@ -5,15 +5,6 @@
     "microblog_backend": {
       "type": "motoko",
       "main": "src/microblog_backend/main.mo"
-    },
-    "microblog_frontend": {
-      "type": "assets",
-      "source": [
-        "src/microblog_frontend/assets"
-      ],
-      "dependencies": [
-        "microblog_backend"
-      ]
     }
   },
   "defaults": {
